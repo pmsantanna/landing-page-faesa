@@ -1,0 +1,88 @@
+@import '/reset.css';
+@import '/components.css';
+
+* {
+  position: relative;
+  --c2: #ededed;
+  --p3: #00b1f4;
+  --grad-p1: linear-gradient(180deg, #00b4f8 0%, #00aded 100%);
+  --grad-p2: linear-gradient(180deg, #4bcaf9 0%, #48c3f0 100%);
+}
+
+body {
+  background: var(--c2);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.menu {
+  font: 500 0.975rem/1.5rem 'Poppins';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 220px;
+}
+
+.logo {
+  display: block;
+  position: relative;
+}
+
+.logo::before {
+  display: inline-block;
+  line-height: 1rem;
+  content: '';
+  background-image: url('/assets/faesa.svg');
+  background-repeat: no-repeat;
+  width: 108px;
+  height: 26px;
+}
+
+.menu ul {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menu a {
+  display: flex;
+  position: relative;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.menu ul a:not(.button)::before {
+  content: '';
+  height: 1px;
+  width: 0%;
+  background: black;
+  position: absolute;
+  bottom: -2px;
+  transition: width 200ms;
+}
+
+.menu ul li a:not(.button):hover::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: -2px;
+}
+
+.menu a img {
+  transition: all 150ms;
+}
+
+.menu a:hover img {
+  transform: rotate(180deg);
+}
+
+.banner {
+  padding: 0px 220px;
+  display: flex;
+}

@@ -1,0 +1,704 @@
+@import '/reset.css';
+
+$c1: #f7f7f7;
+$c2: #ededed;
+$c3: #dedede;
+$c5: #b2b2b2;
+$c8: #595959;
+$c10: #1f1f1f;
+$c11: #111111;
+$p3: #00b1f4;
+$grad-c1: linear-gradient(180deg, #e0e0e0 0%, #dcdcdc 100%);
+$grad-c0: linear-gradient(180deg, #cdcdcd 0%, #cdcdcd 100%);
+$grad-p1: linear-gradient(180deg, #00b4f8 0%, #00aded 100%);
+$grad-p2: linear-gradient(180deg, #4bcaf9 0%, #48c3f0 100%);
+$s1: 0px 1px 2px 0px rgba(0, 0, 0, 0.15), 0px 1px 3px 1px rgba(0, 0, 0, 0.075);
+$s2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+
+* {
+  position: relative;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+
+  strong {
+    font-weight: bold;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+body {
+  background: $c2;
+  max-width: 1800px;
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.button {
+  background: black;
+  display: inline-block;
+  font: 500 16px/24px 'Poppins';
+  text-transform: uppercase;
+  color: white;
+  padding: 16px 32px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.primario {
+  background: $grad-p1;
+
+  &:hover {
+    background: $grad-p2;
+  }
+}
+
+.secundario {
+  color: black;
+  background: $grad-c1;
+
+  &:hover {
+    background: $grad-c0;
+  }
+}
+
+.detalhe {
+  position: absolute;
+  background-image: url('/assets/logo-faesa-branco.svg');
+  background-repeat: no-repeat;
+  height: 680px;
+  width: 680px;
+  top: -250px;
+  right: 200px;
+  z-index: -200;
+}
+
+.detalhe.preto {
+  background-image: url('/assets/logo-faesa-preto.svg');
+  transform: scale(0.85);
+  top: 49px;
+  left: -115px;
+  z-index: 100;
+  border-radius: 12rem;
+}
+
+.container {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.menu {
+  font: 500 0.975rem/1.5rem 'Poppins';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 220px;
+}
+
+.logo {
+  display: block;
+  position: relative;
+}
+
+.logo::before {
+  display: inline-block;
+  line-height: 1rem;
+  content: '';
+  background-image: url('/assets/faesa.svg');
+  background-repeat: no-repeat;
+  width: 108px;
+  height: 26px;
+}
+
+.menu ul {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menu a {
+  display: flex;
+  position: relative;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.menu ul a:not(.button)::before {
+  content: '';
+  height: 1px;
+  width: 0%;
+  background: black;
+  position: absolute;
+  bottom: -2px;
+  transition: width 200ms;
+}
+
+.menu ul li a:not(.button):hover::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: -2px;
+}
+
+.menu a img {
+  transition: all 150ms;
+}
+
+.menu a:hover img {
+  transform: rotate(180deg);
+}
+
+.banner {
+  margin-top: 40px;
+  padding: 0px 220px;
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  z-index: inherit;
+  text-align: center;
+
+  h1 {
+    font: 700 72px/80px 'Lato';
+  }
+
+  span {
+    color: $p3;
+  }
+
+  p {
+    font: 500 1.125/32px 'Roboto';
+    color: $c8;
+  }
+}
+
+.bg-preto {
+  background: $c11;
+  margin: 140px 140px;
+  border-radius: 15px;
+  padding: 4rem;
+  height: 650px;
+  box-shadow: $s2;
+}
+
+.bg-branco {
+  background: $c1;
+  margin: -180px 140px;
+  border-radius: 15px;
+  padding: 230px 4rem 4rem 4rem;
+  height: 800px;
+  box-shadow: $s1;
+}
+
+.conteudo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  max-width: 70ch;
+  font: 400 1.125rem/1.875rem 'Roboto';
+  color: $c3;
+  padding-right: 110px;
+  z-index: 500;
+  border-radius: 15px;
+
+  span {
+    font-weight: bold;
+  }
+
+  h2 {
+    color: $c5;
+    font-family: 'Poppins';
+    font-weight: 500;
+  }
+
+  a {
+    text-transform: uppercase;
+    color: $p3;
+    font: 500 18px/18px 'Poppins';
+    display: flex;
+    flex: 1;
+    align-self: self-start;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0%;
+      background: $p3;
+      bottom: -6px;
+      transition: all 250ms;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+  }
+}
+
+.conteudo-img {
+  position: absolute;
+  display: block;
+  background-image: url('/assets/img-01.png');
+  background-repeat: no-repeat;
+  transform: scale(0.85);
+  top: 0;
+  height: 900px;
+  width: 900px;
+  left: 530px;
+  top: -125px;
+}
+
+.sobre {
+  display: grid;
+  position: relative;
+  height: 100%;
+  align-content: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container-vantagens {
+  display: grid;
+  justify-content: center;
+}
+
+.bg-branco.container-vantagens {
+  z-index: -100;
+}
+
+.vantagens {
+  display: grid;
+  max-width: 900px;
+  max-height: 450px;
+  grid-template-columns: repeat(3, 1fr);
+
+  > div {
+    padding: 1rem;
+    border-left: 2px solid $c3;
+    border-top: 2px solid $c3;
+  }
+
+  > div:nth-child(1),
+  div:nth-child(4) {
+    border-left: 2px solid transparent;
+  }
+
+  > div:nth-child(-n + 3) {
+    padding: 0 1rem 1rem 1rem;
+    border-top: 2px solid transparent;
+  }
+}
+
+.card {
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+
+  h2 {
+    text-transform: uppercase;
+    font: 700 36px/40px 'Roboto';
+  }
+
+  div {
+    font: 700 48px/48px 'Roboto';
+  }
+
+  .span-detalhe {
+    color: $p3;
+  }
+}
+
+.container-estudos {
+  color: white;
+  width: 100%;
+  margin-top: 260px;
+  margin-left: 0;
+  border-radius: 0;
+  height: 750px;
+
+  h2 {
+    margin-left: 140px;
+  }
+}
+
+.titulo-estudos {
+  h2 {
+    font: 600 36px/40px 'Poppins';
+    letter-spacing: 1.5px;
+    color: $c2;
+  }
+
+  span {
+    font: 600 36px/40px 'Poppins';
+    letter-spacing: 1.5px;
+    color: $p3;
+  }
+}
+
+.cards-estudos {
+  display: flex;
+  margin: 0 auto;
+  gap: 18px;
+  width: 100%;
+  flex: 1;
+  margin-top: 8rem;
+  justify-content: center;
+}
+
+.card-estudos {
+  position: relative;
+  background: #1c1c1c;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  border-radius: 5px;
+  border: 1px solid #2e2e2e;
+  padding: 3rem 2.75rem 5rem 2.75rem;
+
+  p {
+    font: 400 14px/18px 'Poppins';
+    text-align: center;
+  }
+
+  span {
+    color: $c5;
+  }
+
+  .detalhe-estudos::before {
+    display: inline-block;
+    content: '';
+    background-image: url('/assets/estudos-01.svg');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    height: 175px;
+    width: 175px;
+  }
+
+  .card-2::before {
+    background-image: url('/assets/estudos-02.svg');
+    background-size: 60%;
+  }
+
+  .card-3::before {
+    background-image: url('/assets/estudos-03.svg');
+  }
+
+  .card-4::before {
+    background-image: url('/assets/estudos-04.svg');
+  }
+}
+
+.container-ingresso {
+  margin-top: -60px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 6rem;
+  height: 100%;
+
+  .titulo-ingresso {
+    font: 600 36px/40px 'Poppins';
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font: inherit;
+      letter-spacing: 1.1px;
+    }
+
+    span {
+      font: inherit;
+      color: $p3;
+    }
+  }
+
+  .cards-ingresso {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    .card-ingresso {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px;
+      max-width: 900px;
+      align-self: center;
+    }
+
+    .card-ingresso:nth-child(even) .conteudo-ingresso {
+      margin-left: 0;
+    }
+  }
+}
+
+.conteudo-ingresso {
+  margin-left: -20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  gap: 25px;
+
+  h3 {
+    font: 700 28px/32px 'Poppins';
+  }
+
+  p {
+    font: 400 16px/24px 'Poppins';
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font: 500 18px/24px 'Poppins';
+    text-transform: uppercase;
+    gap: 5px;
+
+    img {
+      scale: 0.8;
+      transition: transform 200ms;
+    }
+  }
+
+  a:hover {
+    img {
+      transform: translateX(15px);
+    }
+  }
+}
+
+.icone-ingresso {
+  img {
+    margin-left: -6px;
+    scale: 0.8;
+  }
+}
+
+.cards-ingresso:last-child {
+  margin-bottom: 100px;
+}
+
+.container-contato {
+  margin: 0 auto;
+  padding: 9rem;
+  margin-top: 8rem;
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 10rem;
+    gap: 24px;
+    column-gap: 2rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 14px;
+      font-family: 'Poppins';
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      font: 500 14px/24px 'Roboto';
+      box-sizing: border-box;
+      display: inline-block;
+      background: #f7f7f7;
+      padding: 6px 12px;
+      width: 100%;
+      border: 1px solid #dedede;
+    }
+
+    *::placeholder {
+      color: $c5;
+    }
+
+    select {
+      font: 500 14px/24px 'Roboto';
+      box-sizing: border-box;
+      width: 100%;
+      background: #f7f7f7;
+      padding: 6px 12px;
+      border: 1px solid #dedede;
+
+      :sleected {
+        color: $c8;
+      }
+
+      button {
+      }
+    }
+  }
+
+  .titulo-contato {
+    margin-bottom: 4rem;
+    h2,
+    span {
+      font: 600 36px/40px 'Poppins';
+      letter-spacing: 1.5px;
+      color: $c10;
+    }
+
+    span {
+      color: $p3;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
+
+  p {
+    color: $c8;
+    text-align: center;
+    line-height: 1.25;
+  }
+}
+
+.mensagem {
+  grid-column: 1/-1;
+
+  #mensagem {
+    height: 20ch;
+  }
+}
+
+.observacao {
+  display: inline-block;
+  font: 500 12px/16px 'Poppins';
+  grid-column: 1 / -1;
+  text-align: left !important;
+}
+
+.submit {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 0 10rem;
+  margin-top: 2rem;
+
+  button {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    top: -40px;
+    justify-self: end;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.map::before {
+  position: absolute;
+  content: '';
+  background-image: url('/assets/map.png');
+  background-position: center;
+  background-size: 100%;
+  height: 350px;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+footer {
+  display: flex;
+  background: $c11;
+  color: white;
+  margin-top: 350px;
+  padding: 4rem 15rem;
+  gap: 6rem;
+  width: 100%;
+
+  h2 {
+    font: 500 18px/24px 'Roboto';
+    text-transform: uppercase;
+    letter-spacing: 0.35;
+    margin-bottom: 2rem;
+  }
+
+  li {
+    font: 500 16px/18px 'Roboto';
+    color: $c5;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    margin-bottom: 2rem;
+  }
+
+  .links {
+    margin-top: 20px;
+  }
+
+  .contato {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.listaCursos {
+  position: relative;
+  left: -210px;
+  top: 20px;
+  ul {
+    z-index: 300;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+    li {
+      a {
+        padding: 10px 10px;
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+      }
+
+      a::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
